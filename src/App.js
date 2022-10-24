@@ -11,6 +11,7 @@ import Registration from './Components/Registration/Registration';
 import Main from './Main/Main';
 
 
+
 const router=createBrowserRouter([
   {
     path:'/',

@@ -4,12 +4,12 @@ import logo from '../../images/logo.png'
 
 const Header = () => {
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-purple-600">
             <div className="flex-1">
-                <Link to='/' className="btn btn-ghost normal-case text-4xl"><img className='h-8 w-8' src={logo} alt="" /> Programming-Courses</Link>
+                <Link to='/' className="btn btn-ghost normal-case text-3xl text-white font-bold"><img className='h-8 w-8 mr-3' src={logo} alt="" /> Programming-Courses</Link>
             </div>
             <div className="flex-none">
-                <ul className="menu menu-horizontal p-0">
+                <ul className="menu menu-horizontal p-0 text-white font-bold">
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/courses'>Courses</Link></li>
                     <li><Link to='/blog'>Blog</Link></li>
