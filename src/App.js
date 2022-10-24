@@ -1,10 +1,53 @@
 
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
+import Blog from './Components/Blog/Blog';
+import Courses from './Components/Courses/Courses';
+import ErrorPage from './Components/ErrorPage/ErrorPage';
+import Home from './Components/Home/Home';
+import Login from './Components/LogIn/Login';
+import Logout from './Components/Logout/Logout';
+import Registration from './Components/Registration/Registration';
+import Main from './Main/Main';
 
+
+const router=createBrowserRouter([
+  {
+    path:'/',
+    errorElement:<ErrorPage></ErrorPage>,
+    element:<Main></Main>,
+    children:[
+      {
+        path:'/',
+        element:<Home></Home>
+      },
+      {
+        path:'/courses',
+        element:<Courses></Courses>
+      },
+      {
+        path:'/registration',
+        element:<Registration></Registration>
+      },
+      {
+        path:'/login',
+        element:<Login></Login>
+      },
+      {
+        path:'/logout',
+        element:<Logout></Logout>
+      },
+      {
+        path:'/blog',
+        element:<Blog></Blog>
+      }
+    ]
+  }
+])
 function App() {
   return (
     <div>
-      
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
