@@ -36,14 +36,15 @@ const router=createBrowserRouter([
         path:'/login',
         element:<Login></Login>
       },
-      {
-        path:'/logout',
-        element:<Logout></Logout>
-      },
+      // {
+      //   path:'/logout',
+      //   element:<Logout></Logout>
+      // },
       {
         path:'/blog',
         element:<Blog></Blog>
       },
+
       {
         path:'/courses/:id',
         loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`),
