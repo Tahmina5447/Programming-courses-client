@@ -2,6 +2,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import Blog from './Components/Blog/Blog';
+import CourseDetails from './Components/CourseDetails/CourseDetails';
 import Courses from './Components/Courses/Courses';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import Home from './Components/Home/Home';
@@ -9,6 +10,7 @@ import Login from './Components/LogIn/Login';
 import Logout from './Components/Logout/Logout';
 import Registration from './Components/Registration/Registration';
 import Main from './Main/Main';
+
 
 
 
@@ -41,6 +43,11 @@ const router=createBrowserRouter([
       {
         path:'/blog',
         element:<Blog></Blog>
+      },
+      {
+        path:'/courses/:id',
+        loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`),
+        element:<CourseDetails></CourseDetails>
       }
     ]
   }
