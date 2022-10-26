@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import google from '../../images/google.png';
 import github from '../../images/GitHub-Mark.png';
@@ -6,6 +6,8 @@ import { UserContext } from '../MainContext/MainContext';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
+    const [error,setError]=useState('');
+
     const {loginProvider,userLogin}=useContext(UserContext);
 
     const googleProvider=new GoogleAuthProvider();
@@ -15,7 +17,10 @@ const Login = () => {
         const user=result.user;
         console.log(user);
        })
-       .catch(error=>console.error(error));
+       .catch(error=>{
+        console.error(error)
+        
+       });
     }
 
 
@@ -39,14 +44,20 @@ const Login = () => {
         userLogin(email,password)
         .then(result=>{
             const user=result.user;
+            setError('');
+            form.reset();
             console.log(user);
         })
-       .catch(error=>console.error(error));
+        .catch(error=>{
+            console.error(error)
+            setError(error.message)
+           });
     }
 
     return (
         <div className='bg-purple-600 w-1/5 mx-auto my-12 text-center'>
             <form onSubmit={handleuserLogin} action="" className=' p-4 text-white'>
+            <p className='text-white my-6'>{error}</p>
                 <div className='my-3'>
                     <p>Email:</p>
                     <input name='email' type="email" placeholder='Email' required />

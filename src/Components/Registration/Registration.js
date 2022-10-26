@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import google from '../../images/google.png';
 import github from '../../images/GitHub-Mark.png';
@@ -6,6 +6,7 @@ import { UserContext } from '../MainContext/MainContext';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Registration = () => {
+    const [error,setError]=useState('');
     const {createUser,loginProvider}=useContext(UserContext);
     const handelCreateUser=(event)=>{
         event.preventDefault();
@@ -18,9 +19,14 @@ const Registration = () => {
         createUser(email,password)
         .then(result=>{
             const user=result.user;
+            setError('');
+            form.reset();
             console.log(user);
         })
-       .catch(error=>console.error(error));
+       .catch(error=>{
+        console.error(error)
+        setError(error.message)
+       });
     }
 
     const googleProvider=new GoogleAuthProvider();
@@ -46,6 +52,7 @@ const Registration = () => {
     return (
         <div className='bg-purple-600 w-1/5 mx-auto my-12 text-center'>
             <form onSubmit={handelCreateUser} action="" className=' p-4 text-white'>
+                <p className='text-white my-6'>{error}</p>
                 <div className='my-3'>
                     <p>Full Name:</p>
                     <input name='name' type="text" placeholder='Full Name' />
