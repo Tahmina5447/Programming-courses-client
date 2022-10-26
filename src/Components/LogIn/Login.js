@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import google from '../../images/google.png';
 import github from '../../images/GitHub-Mark.png';
 import { UserContext } from '../MainContext/MainContext';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
     const {loginProvider,userLogin}=useContext(UserContext);
@@ -18,6 +18,16 @@ const Login = () => {
        .catch(error=>console.error(error));
     }
 
+
+    const githubProvider = new GithubAuthProvider();
+    const handleGitHubLogin=()=>{
+        loginProvider(githubProvider)
+        .then(result=>{
+            const user=result.user;
+            console.log(user);
+        })
+        .catch(error=>console.error(error));
+    }
 
     
     const handleuserLogin=(event)=>{
@@ -50,7 +60,7 @@ const Login = () => {
                 <div onClick={handlegooglelogin} className='btn text-center flex my-3 w-3/5 mx-auto bg-purple-900 p-2'>
                    <span className='mr-3'>Login with </span> <img className='h-5 w-5' src={google} alt="" />
                 </div>
-                <div className=' btn text-center flex my-3 w-3/5 mx-auto bg-purple-900 p-2'>
+                <div onClick={handleGitHubLogin} className=' btn text-center flex my-3 w-3/5 mx-auto bg-purple-900 p-2'>
                    <span className='mr-3'>Login with </span> <img className='h-5 w-5' src={github} alt="" />
                 </div>
             </form>
