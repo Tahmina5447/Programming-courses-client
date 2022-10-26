@@ -9,6 +9,7 @@ import Home from './Components/Home/Home';
 import Login from './Components/LogIn/Login';
 import Registration from './Components/Registration/Registration';
 import Main from './Main/Main';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 
 
@@ -25,7 +26,7 @@ const router=createBrowserRouter([
       },
       {
         path:'/courses',
-        element:<Courses></Courses>
+        element:<PrivateRoute><Courses></Courses></PrivateRoute>
       },
       {
         path:'/registration',

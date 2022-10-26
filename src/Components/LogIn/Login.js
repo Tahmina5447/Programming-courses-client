@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import google from '../../images/google.png';
 import github from '../../images/GitHub-Mark.png';
 import { UserContext } from '../MainContext/MainContext';
@@ -7,10 +7,13 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
     const [error,setError]=useState('');
-
+    const location=useLocation();
     const {loginProvider,userLogin}=useContext(UserContext);
-
+    const githubProvider = new GithubAuthProvider();
     const googleProvider=new GoogleAuthProvider();
+    const navigate=useNavigate();
+    const from=location.state?.from?.pathname || '/courses'
+
     const handlegooglelogin=()=>{
         loginProvider(googleProvider)
        .then(result=>{
@@ -24,7 +27,7 @@ const Login = () => {
     }
 
 
-    const githubProvider = new GithubAuthProvider();
+    
     const handleGitHubLogin=()=>{
         loginProvider(githubProvider)
         .then(result=>{
@@ -46,6 +49,7 @@ const Login = () => {
             const user=result.user;
             setError('');
             form.reset();
+            navigate(from,{replace:true});
             console.log(user);
         })
         .catch(error=>{
@@ -60,11 +64,11 @@ const Login = () => {
             <p className='text-white my-6'>{error}</p>
                 <div className='my-3'>
                     <p>Email:</p>
-                    <input name='email' type="email" placeholder='Email' required />
+                    <input className='bg-purple-900' name='email' type="email" placeholder='Email' required />
                 </div>
                 <div className='my-3'>
                     <p>Password:</p>
-                    <input className='text-black'  name='password' type="password" placeholder='Password' required />
+                    <input className='bg-purple-900'  name='password' type="password" placeholder='Password' required />
                 </div>
                 <button className='btn bg-white text-purple-600 my-4'>Login</button>
                 <p><small>Create an account <Link to='/registration' className='text-white btn-link'>Registration</Link></small></p>

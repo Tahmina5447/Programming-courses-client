@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import google from '../../images/google.png';
 import github from '../../images/GitHub-Mark.png';
 import { UserContext } from '../MainContext/MainContext';
@@ -8,6 +8,14 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 const Registration = () => {
     const [error,setError]=useState('');
     const {createUser,loginProvider}=useContext(UserContext);
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+    const location=useLocation();
+    const navigate=useNavigate();
+
+    const from=location.state?.from?.pathname || '/courses'
+
+
     const handelCreateUser=(event)=>{
         event.preventDefault();
         const form=event.target;
@@ -21,6 +29,7 @@ const Registration = () => {
             const user=result.user;
             setError('');
             form.reset();
+            navigate(from,{replace:true});
             console.log(user);
         })
        .catch(error=>{
@@ -29,7 +38,7 @@ const Registration = () => {
        });
     }
 
-    const googleProvider=new GoogleAuthProvider();
+    
     const handlegoogleReg=()=>{
         loginProvider(googleProvider)
        .then(result=>{
@@ -39,7 +48,7 @@ const Registration = () => {
        .catch(error=>console.error(error));
     }
 
-    const githubProvider = new GithubAuthProvider();
+    
     const handleGitHubReg=()=>{
         loginProvider(githubProvider)
         .then(result=>{
@@ -55,19 +64,19 @@ const Registration = () => {
                 <p className='text-white my-6'>{error}</p>
                 <div className='my-3'>
                     <p>Full Name:</p>
-                    <input name='name' type="text" placeholder='Full Name' />
+                    <input className='bg-purple-900' name='name' type="text" placeholder='Full Name' />
                 </div>
                 <div className='my-3'>
                     <p>Photo URL:</p>
-                    <input name='photourl' type="text" placeholder='Photo url' />
+                    <input className='bg-purple-900' name='photourl' type="text" placeholder='Photo url' />
                 </div>
                 <div className='my-3'>
                     <p>Email:</p>
-                    <input name='email' type="email" placeholder='Email' required />
+                    <input className='bg-purple-900' name='email' type="email" placeholder='Email' required />
                 </div>
                 <div className='my-3'>
                     <p>Password:</p>
-                    <input name='password' type="password" placeholder='Password' required />
+                    <input className='bg-purple-900' name='password' type="password" placeholder='Password' required />
                 </div>
                 <button className='btn bg-white text-purple-600 my-4'>Registration</button>
                 <p><small>Already Have An Account? <Link to='/login' className='text-white btn-link'>Login</Link></small></p>
