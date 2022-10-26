@@ -7,7 +7,6 @@ import Courses from './Components/Courses/Courses';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import Home from './Components/Home/Home';
 import Login from './Components/LogIn/Login';
-import Logout from './Components/Logout/Logout';
 import Registration from './Components/Registration/Registration';
 import Main from './Main/Main';
 
@@ -37,14 +36,13 @@ const router=createBrowserRouter([
         element:<Login></Login>
       },
       {
-        path:'/logout',
-        element:<Logout></Logout>
-      },
-      {
         path:'/blog',
         element:<Blog></Blog>
       },
-
+      // {
+      //   path:'/blog',
+      //   element:<Blog></Blog>
+      // },
       {
         path:'/courses/:id',
         loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`),
