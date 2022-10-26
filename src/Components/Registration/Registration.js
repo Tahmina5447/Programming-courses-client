@@ -13,7 +13,7 @@ const Registration = () => {
     const location=useLocation();
     const navigate=useNavigate();
 
-    const from=location.state?.from?.pathname || '/courses'
+    const from=location.state?.from?.pathname || '/'
 
 
     const handelCreateUser=(event)=>{
@@ -59,12 +59,12 @@ const Registration = () => {
     }
 
     return (
-        <div className='bg-purple-600 w-1/5 mx-auto my-12 text-center'>
+        <div className='bg-purple-600 lg:w-1/5 md:w-2/5 sm:w-full mx-auto  my-12 text-center'>
             <form onSubmit={handelCreateUser} action="" className=' p-4 text-white'>
                 <p className='text-white my-6'>{error}</p>
                 <div className='my-3'>
                     <p>Full Name:</p>
-                    <input className='bg-purple-900' name='name' type="text" placeholder='Full Name' />
+                    <input className='bg-purple-900' name='name' type="text" placeholder='Full Name' required />
                 </div>
                 <div className='my-3'>
                     <p>Photo URL:</p>

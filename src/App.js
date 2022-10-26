@@ -7,9 +7,11 @@ import Courses from './Components/Courses/Courses';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import Home from './Components/Home/Home';
 import Login from './Components/LogIn/Login';
+import PremiumAccess from './Components/PremiumAccess/PremiumAccess';
 import Registration from './Components/Registration/Registration';
 import Main from './Main/Main';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
+
 
 
 
@@ -26,8 +28,15 @@ const router=createBrowserRouter([
       },
       {
         path:'/courses',
-        element:<PrivateRoute><Courses></Courses></PrivateRoute>
+        element:<Courses></Courses>
       },
+     
+      {
+        path:'/premium/:id',
+        loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`),
+        element:<PrivateRoute><PremiumAccess></PremiumAccess></PrivateRoute>
+      },
+     
       {
         path:'/registration',
         element:<Registration></Registration>
@@ -56,6 +65,7 @@ function App() {
   return (
     <div>
       <RouterProvider router={router}></RouterProvider>
+      
     </div>
   );
 }

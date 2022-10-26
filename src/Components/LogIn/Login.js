@@ -12,7 +12,7 @@ const Login = () => {
     const githubProvider = new GithubAuthProvider();
     const googleProvider=new GoogleAuthProvider();
     const navigate=useNavigate();
-    const from=location.state?.from?.pathname || '/courses'
+    const from=location.state?.from?.pathname || '/'
 
     const handlegooglelogin=()=>{
         loginProvider(googleProvider)
@@ -49,7 +49,7 @@ const Login = () => {
             const user=result.user;
             setError('');
             form.reset();
-            navigate(from,{replace:true});
+            navigate(from,{replace : true});
             console.log(user);
         })
         .catch(error=>{
@@ -59,7 +59,7 @@ const Login = () => {
     }
 
     return (
-        <div className='bg-purple-600 w-1/5 mx-auto my-12 text-center'>
+        <div className='bg-purple-600 lg:w-1/5 md:w-2/5 sm:w-full mx-auto my-12 text-center'>
             <form onSubmit={handleuserLogin} action="" className=' p-4 text-white'>
             <p className='text-white my-6'>{error}</p>
                 <div className='my-3'>

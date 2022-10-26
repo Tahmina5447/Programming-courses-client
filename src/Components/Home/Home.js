@@ -18,7 +18,7 @@ const Home = () => {
                 <h1 className='text-purple-600 font-bold text-center text-4xl mt-10'>Our Courses</h1>
                 <hr className='w-2/5 bg-purple-600 h-0.5 mx-auto mt-3' />
             </div>
-            <div className='w-3/5 mx-auto grid grid-cols-3 my-8 gap-6'>
+            <div className='w-3/5 mx-auto grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 my-8 gap-6'>
                 <div className="card w-64 h-48 bg-base-100 shadow-xl image-full">
                     <figure><img src={html}alt="Shoes" /></figure>
                     <div className="card-body">

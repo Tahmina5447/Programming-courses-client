@@ -10,8 +10,8 @@ const Courses = () => {
         .then(data=>setCategories(data));
     },[])
     return (
-        <div className='flex'>
-            <div className='w-2/6 text-center bg-purple-600 pb-6'>
+        <div className=' sm:block md:flex lg:flex'>
+            <div className='lg:w-2/6 md:w-full sm:w-full text-center bg-purple-600 pb-6'>
                 <hr />
                 <h2 className='font-bold text-white text-xl mt-8 mb-6'>Our Courses</h2>
                 {
@@ -20,10 +20,10 @@ const Courses = () => {
                     </p>)
                 }
             </div>
-            <div className='w-4/6 grid grid-cols-2 m-8 gap-8'>
+            <div className='lg:w-4/6 md:w-full sm:w-full grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 m-6 gap-8'>
                 {categories.map(category=>
-                    <div className="card card-side bg-base-100 shadow-xl border border-2 border-purple-600">
-                    <figure className='bg-purple-600'><img  className='h-60 w-60 ml-2 ' src={category.img} alt="Movie"/></figure>
+                    <div className="card card-side bg-base-100 shadow-xl border border-2 border-purple-600 sm:pr-6">
+                    <figure className='bg-purple-600'><img  className='h-56 w-56 ml-2 ' src={category.img} alt="Movie"/></figure>
                     <div className="card-body  ">
                       <h2 className="card-title">{category.category}</h2>
                       <p className='text-purple-600'>Learning Time: {category.learningTime}</p>
