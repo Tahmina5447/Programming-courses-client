@@ -39,10 +39,10 @@ const router=createBrowserRouter([
         path:'/blog',
         element:<Blog></Blog>
       },
-      // {
-      //   path:'/blog',
-      //   element:<Blog></Blog>
-      // },
+      {
+        path:'/blog',
+        element:<Blog></Blog>
+      },
       {
         path:'/courses/:id',
         loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`),
