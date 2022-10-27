@@ -8,10 +8,11 @@ import ErrorPage from './Components/ErrorPage/ErrorPage';
 import Faq from './Components/Faq/Faq.js';
 import Home from './Components/Home/Home';
 import Login from './Components/LogIn/Login';
-import PremiumAccess from './Components/PremiumAccess/PremiumAccess';
+import PremiumAccess from './Components/Checkout/Checkout';
 import Registration from './Components/Registration/Registration';
 import Main from './Main/Main';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
+import Checkout from './Components/Checkout/Checkout';
 
 
 
@@ -33,9 +34,9 @@ const router=createBrowserRouter([
       },
      
       {
-        path:'/premium/:id',
+        path:'/checkout/:id',
         loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`),
-        element:<PrivateRoute><PremiumAccess></PremiumAccess></PrivateRoute>
+        element:<PrivateRoute><Checkout></Checkout></PrivateRoute>
       },
      
       {

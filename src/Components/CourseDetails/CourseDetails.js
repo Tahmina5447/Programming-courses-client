@@ -40,7 +40,7 @@ const CourseDetails = () => {
 
                 </div>
                 <div className="card-actions mx-auto my-4">
-                    <Link to={`/premium/${id}`} className="btn bg-white text-purple-600">Get Premium Access</Link>
+                    <Link to={`/checkout/${id}`} className="btn bg-white text-purple-600">Get Premium Access</Link>
                 </div>
             </div>
         </div>

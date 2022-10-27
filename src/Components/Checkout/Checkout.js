@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 
-const PremiumAccess = () => {
+const Checkout = () => {
     const premiumData=useLoaderData();
     const {img,category,description,price}=premiumData;
     return (
@@ -14,4 +14,4 @@ const PremiumAccess = () => {
     );
 };
 
-export default PremiumAccess;
+export default Checkout;
