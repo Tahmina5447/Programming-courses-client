@@ -35,7 +35,7 @@ const router=createBrowserRouter([
      
       {
         path:'/checkout/:id',
-        loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`),
+        loader:({params})=>fetch(`https://server-programming-courses-tahminakhatun99322-gmailcom.vercel.app/details/${params.id}`),
         element:<PrivateRoute><Checkout></Checkout></PrivateRoute>
       },
      
@@ -57,7 +57,7 @@ const router=createBrowserRouter([
       },
       {
         path:'/courses/:id',
-        loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`),
+        loader:({params})=>fetch(`https://server-programming-courses-tahminakhatun99322-gmailcom.vercel.app/details/${params.id}`),
         element:<CourseDetails></CourseDetails>
       }
     ]
