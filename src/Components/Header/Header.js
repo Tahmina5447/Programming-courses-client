@@ -21,18 +21,21 @@ const Header = () => {
     return (
         <div className="navbar bg-purple-600 ">
             <div className="flex-1">
-                <Link to='/' className="btn btn-ghost normal-case text-2xl text-white font-bold"><img className='h-8 w-8 mr-3' src={logo} alt="" /> Programming-Courses</Link>
+                <Link to='/' className="btn btn-ghost normal-case text-xl text-white font-bold"><img className='h-8 w-8 mr-3' src={logo} alt="" /> Programming-Courses</Link>
             </div>
+            <div className='  hidden lg:block md:block'>
             <label className="toggle-switch">
                 <input type="checkbox" checked={isToggled} onChange={onToggle} />
                 <span className="switch" />
             </label>
+            </div>
             <div className="flex-none  hidden lg:block md:block">
 
                 <ul className="menu menu-horizontal p-0 text-white font-bold">
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/courses'>Courses</Link></li>
                     <li><Link to='/blog'>Blog</Link></li>
+                    <li><Link to='/faq'>FAQ</Link></li>
                     {
                         user?.uid ?
                             <>
@@ -73,6 +76,7 @@ const Header = () => {
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/courses'>Courses</Link></li>
                         <li><Link to='/blog'>Blog</Link></li>
+                        <li><Link to='/faq'>FAQ</Link></li>
                         {
                             user?.uid ?
                                 <>
@@ -84,6 +88,21 @@ const Header = () => {
                                     <li><Link to='/registration'>Registration</Link></li>
                                 </>
                         }
+                        <li>{
+                        user?.photoURL ?
+                            <>
+                                <abbr title={user?.displayName}><img className='h-5 w-5' src={user.photoURL} alt="" /></abbr>
+
+
+                            </>
+
+                            :
+                            <>
+                                <abbr title={user?.displayName}><UilUserSquare size="30"></UilUserSquare></abbr>
+
+
+                            </>
+                    }</li>
                     </ul>
                 </div>
             </div>

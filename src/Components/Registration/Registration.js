@@ -21,7 +21,7 @@ const Registration = () => {
         const form=event.target;
         const name=form.name.value;
         const email=form.email.value;
-        const photourl=form.photourl.value;
+        const photoURL=form.photoURL.value;
         const password=form.password.value;
 
         createUser(email,password)
@@ -68,7 +68,7 @@ const Registration = () => {
                 </div>
                 <div className='my-3'>
                     <p>Photo URL:</p>
-                    <input className='bg-purple-900' name='photourl' type="text" placeholder='Photo url' />
+                    <input className='bg-purple-900' name='photoURL' type="text" placeholder='Photo url' />
                 </div>
                 <div className='my-3'>
                     <p>Email:</p>

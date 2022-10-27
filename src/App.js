@@ -5,6 +5,7 @@ import Blog from './Components/Blog/Blog';
 import CourseDetails from './Components/CourseDetails/CourseDetails';
 import Courses from './Components/Courses/Courses';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
+import Faq from './Components/Faq/Faq.js';
 import Home from './Components/Home/Home';
 import Login from './Components/LogIn/Login';
 import PremiumAccess from './Components/PremiumAccess/PremiumAccess';
@@ -50,8 +51,8 @@ const router=createBrowserRouter([
         element:<Blog></Blog>
       },
       {
-        path:'/blog',
-        element:<Blog></Blog>
+        path:'/faq',
+        element:<Faq></Faq>
       },
       {
         path:'/courses/:id',
