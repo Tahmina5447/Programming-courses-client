@@ -5,7 +5,7 @@ const Courses = () => {
     const [categories,setCategories]=useState([]);
 
     useEffect(()=>{
-        fetch('https://server-programming-courses-tahminakhatun99322-gmailcom.vercel.app/categories')
+        fetch('https://server-programming-courses.vercel.app/allCategories')
         .then(res=>res.json())
         .then(data=>setCategories(data));
     },[])

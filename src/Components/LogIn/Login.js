@@ -7,11 +7,12 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
     const [error,setError]=useState('');
-    const location=useLocation();
+    
     const {loginProvider,userLogin}=useContext(UserContext);
     const githubProvider = new GithubAuthProvider();
     const googleProvider=new GoogleAuthProvider();
     const navigate=useNavigate();
+    const location=useLocation();
     const from=location.state?.from?.pathname || '/'
 
     const handlegooglelogin=()=>{
@@ -61,16 +62,17 @@ const Login = () => {
     }
 
     return (
-        <div className='bg-purple-600 lg:w-1/5 md:w-2/5 sm:w-full mx-auto my-12 text-center'>
-            <form onSubmit={handleuserLogin} action="" className=' p-4 text-white'>
+        <div className='bg-purple-500 rounded-xl lg:w-1/5 md:w-2/5 sm:w-full mx-auto my-12 text-center py-4'>
+            <h1 className='text-center text-2xl font-bold text-purple-900'>Login Please!</h1>
+            <form onSubmit={handleuserLogin} action="" className='  text-white'>
             <p className='text-white my-6'>{error}</p>
                 <div className='my-3'>
                     <p>Email:</p>
-                    <input className='bg-purple-900' name='email' type="email" placeholder='Email' required />
+                    <input className='bg-white rounded' name='email' type="email"  required />
                 </div>
                 <div className='my-3'>
                     <p>Password:</p>
-                    <input className='bg-purple-900'  name='password' type="password" placeholder='Password' required />
+                    <input className='bg-white rounded'  name='password' type="password"  required />
                 </div>
                 <button className='btn bg-white text-purple-600 my-4'>Login</button>
                 <p><small>Create an account <Link to='/registration' className='text-white btn-link'>Registration</Link></small></p>

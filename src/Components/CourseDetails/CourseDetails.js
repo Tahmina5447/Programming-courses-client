@@ -13,9 +13,9 @@ const CourseDetails = () => {
     return (
         <div ref={ref}>
 
-            <div className=" flex w-1/5 mx-auto">
+            <div className=" w-1/5 mx-auto">
                 <h1 className="text-purple-600 text-center font-bold text-4xl mt-8">{category}</h1>
-                <div className="mt-8 ml-3">
+                <div className="mt-8 text-center">
                     <Pdf targetRef={ref} fileName="">
                         {({ toPdf }) => (
 
@@ -31,7 +31,7 @@ const CourseDetails = () => {
 
 
                 <figure className="px-10 pt-10">
-                    <img src={img} alt="Shoes" className="rounded-xl" />
+                    <img src={img} alt="Shoes" className="max-h-32 rounded-xl" />
                 </figure>
                 <div className="card-body items-center text-center">
                     <h2 className="card-title text-white text-2xl">{category}</h2>

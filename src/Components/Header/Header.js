@@ -15,20 +15,13 @@ const Header = () => {
     }
 
 
- const [isToggled, setIsToggled] = useState(false);
-  const onToggle = () => setIsToggled(!isToggled);
 
     return (
         <div className="navbar bg-purple-600 ">
             <div className="flex-1">
                 <Link to='/' className="btn btn-ghost normal-case text-xl text-white font-bold"><img className='h-8 w-8 mr-3' src={logo} alt="" /> Programming-Courses</Link>
             </div>
-            <div className='  hidden lg:block md:block'>
-            <label className="toggle-switch">
-                <input type="checkbox" checked={isToggled} onChange={onToggle} />
-                <span className="switch" />
-            </label>
-            </div>
+        
             <div className="flex-none  hidden lg:block md:block">
 
                 <ul className="menu menu-horizontal p-0 text-white font-bold">
